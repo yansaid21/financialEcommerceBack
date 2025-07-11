@@ -23,5 +23,6 @@ import { DeleteTransactionUseCase } from './application/use-cases/delete-transac
     UpdateTransactionUseCase,
     DeleteTransactionUseCase,
   ],
+  exports: [TransactionRepositoryPort],
 })
 export class TransactionsModule {}

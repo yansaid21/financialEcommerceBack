@@ -9,10 +9,12 @@ import { GetUserByIdUseCase } from './application/use-cases/get-user-by-id.use-c
 import { GetAllUsersUseCase } from './application/use-cases/get-all-users.use-case';
 import { UpdateUserUseCase } from './application/use-cases/update-user.use-case';
 import { DeleteUserUseCase } from './application/use-cases/delete-user.use-case';
+import { TransactionsModule } from '../transactions/transactions.module';
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
+    TransactionsModule,
   ],
   controllers: [UserController],
   providers: [

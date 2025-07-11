@@ -5,4 +5,5 @@ export abstract class TransactionRepositoryPort {
   abstract findByUser(userId: string): Promise<Transaction[]>;
   abstract update(id: string, data: Partial<Transaction>): Promise<Transaction | null>;
   abstract delete(id: string): Promise<void>;
+  abstract deleteByUserId(userId: string): Promise<void>;
 }

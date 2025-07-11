@@ -34,4 +34,7 @@ export class TransactionRepositoryImpl implements TransactionRepositoryPort {
 async delete(id: string): Promise<void> {
   await this.model.deleteOne({ id }).exec();
 }
+async deleteByUserId(userId: string): Promise<void> {
+  await this.model.deleteMany({ userId }).exec();
+}
 }

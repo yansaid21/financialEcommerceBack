@@ -30,5 +30,15 @@ export class UserRepositoryImpl implements UserRepositoryPort {
   async findAll(): Promise<User[]> {
   return this.userModel.find().exec();
 }
+async update(id: string, data: Partial<User>): Promise<User | null> {
+  return this.userModel.findOneAndUpdate(
+    { id },
+    { ...data, updatedAt: new Date() },
+    { new: true },
+  ).exec();
+}
+async delete(id: string): Promise<void> {
+  await this.userModel.deleteOne({ id }).exec();
+}
 
 }

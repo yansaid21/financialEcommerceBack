@@ -27,4 +27,8 @@ export class UserRepositoryImpl implements UserRepositoryPort {
     });
     return newUser.save();
   }
+  async findAll(): Promise<User[]> {
+  return this.userModel.find().exec();
+}
+
 }

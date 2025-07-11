@@ -5,6 +5,9 @@ import { TransactionController } from './infrastructure/controllers/transaction.
 import { TransactionRepositoryImpl } from './infrastructure/transaction.repositoryImpl'; 
 import { TransactionRepositoryPort } from './domain/repositories/transaction.repository';
 import { CreateTransactionUseCase } from './application/use-cases/cretae-transaction.use-case'; 
+import { UpdateTransactionUseCase } from './application/use-cases/update-transaction.use-case'; 
+import { DeleteTransactionUseCase } from './application/use-cases/delete-transaction.use-case'; 
+
 
 @Module({
   imports: [
@@ -17,6 +20,8 @@ import { CreateTransactionUseCase } from './application/use-cases/cretae-transac
       useClass: TransactionRepositoryImpl,
     },
     CreateTransactionUseCase,
+    UpdateTransactionUseCase,
+    DeleteTransactionUseCase,
   ],
 })
 export class TransactionsModule {}

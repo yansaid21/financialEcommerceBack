@@ -23,4 +23,15 @@ export class TransactionRepositoryImpl implements TransactionRepositoryPort {
   async findByUser(userId: string): Promise<Transaction[]> {
     return this.model.find({ userId }).exec();
   }
+  async update(id: string, data: Partial<Transaction>): Promise<Transaction | null> {
+  return this.model.findOneAndUpdate(
+    { id },
+    { ...data, updatedAt: new Date() },
+    { new: true }
+  ).exec();
+}
+
+async delete(id: string): Promise<void> {
+  await this.model.deleteOne({ id }).exec();
+}
 }
